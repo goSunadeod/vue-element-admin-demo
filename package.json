@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
-    "lint": "eslint --ext .js,.jsx,.vue src/",
+    "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
     "pre-lint": "node check.js"
   },
@@ -15,7 +15,7 @@
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
-  "pre-commit": [
+  "precommit": [
     "pre-lint"
   ],
   "devDependencies": {
