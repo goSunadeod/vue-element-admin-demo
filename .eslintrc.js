@@ -57,12 +57,12 @@ module.exports = {
     // 'arrow-body-style': [1, 'as-needed'], // 箭头函数后 {}
     'prefer-const': 0, // const 代替let
   },
-  overrides:[ // 解决webstorm script标签缩进问题
-    {
-      'files':['*.vue'],
-      'rules':{
-        'indent':'off'
-      }
-    }
-  ]
+  // overrides:[ // 解决webstorm script标签缩进问题
+  //   {
+  //     'files':['*.vue'],
+  //     'rules':{
+  //       'indent':'off'
+  //     }
+  //   }
+  // ]
 }
