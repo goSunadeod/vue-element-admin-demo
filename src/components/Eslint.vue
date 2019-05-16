@@ -17,7 +17,7 @@ export default {
       switch (a) {
         case 1:
           this.a = 3
-          // console.log(2)
+          // console.log(3)
           break
         default:
           this.a = 2
