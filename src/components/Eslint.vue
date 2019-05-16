@@ -26,7 +26,7 @@ export default {
     _test1 (a) {
       let c = 2
       let d = 'x'
-      if (a === c + d) {
+      if (a == c + d) {
         this.test()
       }
     },
