@@ -1,10 +1,14 @@
 <template>
-  <div class="hello">
-    你好 我就是向测试一下eslint
-  </div>
+  <global-page title="测试">
+    <div class="hello">
+      你好 我就是向测试一下eslint
+    </div>
+    <global-button desc="我来"></global-button>
+  </global-page>
 </template>
 
 <script>
+
 export default {
   name: 'Eslint',
   data () {
