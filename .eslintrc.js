@@ -26,7 +26,7 @@ module.exports = {
    // 'vue/script-indent': ['error', 2, {'baseIndent': 1}], // 统一缩进2个空格，数字1表示1倍缩进 用来解决export default 缩进问题
     'comma-dangle': ['error', 'never'], //是否允许对象中出现结尾逗号
     'no-cond-assign': 2, // 禁止条件语句的条件中出现赋值运算符
-    'no-console': 2, // 禁止出现consolequote-props
+    // 'no-console': 2, // 禁止出现consolequote-props
     'no-unreachable': 2, //在return，throw，continue，break语句后不允许出现不可能到达的语句
     'default-case': 0, //在switch语句中需要有default语句
     'eqeqeq': ['error', 'smart'], //比较的时候使用严格等于

@@ -22,7 +22,7 @@ const PrefixPlusText = {
   template: `
   <el-table-column :label="colConfig.label" align="center">
     <template v-slot="{row}">
-      {{ row[colConfig.prop] }}
+      {{ (row[colConfig.prop] || '') + '你好' }}
     </template>
   </el-table-column>
 `

@@ -137,14 +137,6 @@ export default {
     updateByResponse(res) {
       this.$set(this.pageParams, 'totalCount', res.totalCount);
     },
-    // 单个选择
-    selectInfo(selectInfo) {
-      this.$emit('selectInfo', selectInfo);
-    },
-    // 选择全部
-    selectAllInfo(selectAllInfo) {
-      this.$emit('selectAllInfo', selectAllInfo);
-    },
   }
 }
 </script>

@@ -3,12 +3,13 @@
     <div class="hello">
       你好 我就是向测试一下eslint
     </div>
+    <button @click="handleClick">测试</button>
     <global-button desc="我来"></global-button>
   </global-page>
 </template>
 
 <script>
-
+import utlMath from 'utils/math'
 export default {
   name: 'Eslint',
   data () {
@@ -34,7 +35,11 @@ export default {
         this.test()
       }
     },
-    test2 () {
+    handleClick () {
+      console.log(utlMath.divide(123.3, 100)) // 123.3 / 100 ==> 1.233
+      console.log(utlMath.mul(4.015, 100)) // 4.015 * 100 ==> 401.5
+      console.log(utlMath.add(0.05, 0.01)) // 0.05 + 0.01 ==> 0.06
+      console.log(utlMath.sub(1.0, 0.42)) // 1.0 - 0.42 ==> 0.58
     }
   }
 }
