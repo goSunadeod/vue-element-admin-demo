@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import Eslint from '@/components/Eslint'
-import DemoTable from '@/components/TableDemo'
+import Layout from '@/components/layout'
 
 Vue.use(Router)
 
@@ -10,18 +8,27 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'layout',
+      redirect: '/index',
+      component: Layout,
+      children: [
+        {
+          path: 'index',
+          name: 'HelloWorld',
+          // component: () => import('@components/start'),
+          component: () => import('@/components/HelloWorld')
+        }
+      ]
     },
     {
       path: '/demo',
       name: 'Eslint',
-      component: Eslint
+      component: () => import('@/components/Eslint')
     },
     {
       path: '/demoTable',
       name: 'demoTable',
-      component: DemoTable
+      component: () => import('@/components/TableDemo')
     }
   ]
 })

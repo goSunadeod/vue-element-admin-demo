@@ -110,4 +110,82 @@ utl.toFixedNum = function (num, s) {
   }
 }
 
+function isEmpty(value) {
+  return [undefined, null, ''].includes(value);
+}
+
+/**
+ * 金额设置千分位
+ * @param m 修改的数字
+ * @param flag 是否保留小数 默认保留
+ * @param n 保留的小数位 默认为2
+ * @returns {String}
+ */
+utl.moneyFormat = function(m, flag = true, n = 2) {
+  // 空校验
+  if (isEmpty(m)) {
+    return '';
+  }
+   m = Number(m)
+  // 转换异常处理
+  if (!m && m !== 0) {
+    return '';
+  }
+
+  let num;
+  if (flag) {
+    m = utl.toFixedNum(m, n); // toFixed精度修复
+    num = m.replace(/(\d)(?=(\d{3})+\.)/g, ($0, $1) => `${$1},`).replace(/\.$/, '');
+  } else {
+    num = m.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,');
+  }
+  return num;
+}
+
+/**
+ * 金额转换为数字
+ * @param s 需要转换的金额字符串
+ * @return {Number}
+ */
+utl.parseMoney = (s) => {
+  return parseFloat(s.replace(/[^\d\.-]/g, ''))
+}
+
+/**
+ * @param num 需要转换的数字金额
+ * @returns {string} 金额中文大写
+ */
+utl.numToChinese = (num) => {
+  // 小数
+  let fraction = ['角', '分']
+  // 数字
+  let digit = [
+    '零', '壹', '贰', '叁', '肆',
+    '伍', '陆', '柒', '捌', '玖'
+  ]
+  let unit = [
+    ['元', '万', '亿'],
+    ['', '拾', '佰', '仟']
+  ]
+  let head = num < 0 ? '负' : ''
+  num = Math.abs(num)
+  let s = ''
+  for (let i = 0; i < fraction.length; i++) {
+    s += (digit[Math.floor(num * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '')
+  }
+  s = s || '整'
+  num = Math.floor(num)
+  for (let i = 0; i < unit[0].length && num > 0; i++) {
+    let p = ''
+    for (let j = 0; j < unit[1].length && num > 0; j++) {
+      p = digit[num % 10] + unit[1][j] + p
+      num = Math.floor(num / 10)
+    }
+    s = p.replace(/(零.)*零$/, '').replace(/^$/, '零') + unit[0][i] + s
+  }
+  return head + s.replace(/(零.)*零元/, '元')
+    .replace(/(零.)+/g, '零')
+    .replace(/^整$/, '零元整')
+}
+
 export default utl

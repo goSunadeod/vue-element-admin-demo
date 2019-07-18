@@ -3,7 +3,7 @@
     <section>
       <header :class="$style.title">Hello World</header>
       <div>
-        <p :class="$style['div-content']">哈哈哈哈</p>
+        <p :class="$style['div-content']" v-for="item in 150" :key="item">哈哈哈哈</p>
       </div>
     </section>
   </div>
