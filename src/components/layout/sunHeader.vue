@@ -1,31 +1,62 @@
 <template>
-  <div class="navbar navbar-show" >
-    <div class="menu-fold">
-      <i class="el-icon-s-fold fold-icon"></i>
+  <div class="navbar" >
+    <div class="menu-fold" @click="toggleClick">
+      <i class="fold-icon" :class="sidebar ? 'el-icon-s-fold' : 'el-icon-s-unfold'"></i>
     </div>
     <div class="avatar-content">
-      <el-avatar :src="src" :size="40"></el-avatar>
-      <i class="el-icon-caret-bottom"></i>
+      <screenfull class="right-menu-item hover-effect" />
+      <el-dropdown trigger="click">
+        <div class="avatar-wrapper">
+          <el-avatar :src="src" :size="40" class="avatar-image"></el-avatar>
+          <i class="el-icon-caret-bottom"></i>
+        </div>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item icon="el-icon-check">Amazing</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
     </div>
   </div>
 </template>
 
 <script>
+import Screenfull from '@/components/Screenfull'
+import {mapGetters, mapMutations} from 'vuex'
 export default {
+  name: 'sunHeader',
+  components: {Screenfull},
+  computed: {
+    ...mapGetters([
+      'sidebar'
+    ])
+  },
   data () {
     return {
       src: require('../../assets/images/avatar.png')
     }
+  },
+  methods: {
+    toggleClick() {
+      if (this.sidebar) {
+        this.setSidebar(0)
+      } else {
+        this.setSidebar(1)
+      }
+    },
+    ...mapMutations({
+      setSidebar: 'SET_SIDEBAR'
+    })
   }
 }
 </script>
 
 <style lang="scss" scoped>
+  @import "~@/styles/variables.scss";
   .navbar {
     position: fixed;
     z-index: 99;
     top: 0;
     height: 50px;
+    width: calc(100% - #{$sideBarWidth});
     box-sizing: border-box;
     overflow: hidden;
     background: #fff;
@@ -51,16 +82,36 @@ export default {
     }
     .avatar-content {
       margin-right: 40px;
+      display: flex;
+      align-items: center;
+      .right-menu-item {
+        padding: 0 12px;
+        margin-right: 5px;
+        height: 100%;
+        font-size: 22px;
+        color: #5a5e66;
+
+        &.hover-effect {
+          cursor: pointer;
+          transition: background .3s;
+
+          &:hover {
+            background: rgba(0, 0, 0, .025)
+          }
+        }
+      }
     }
     .el-icon-caret-bottom {
       position: absolute;
-      right: 22px;
-      top: 28px;
       font-size: 12px;
+      right: -8px;
+      top: 21px;
       cursor: pointer;
     }
-  }
-  .navbar-show {
-    width: calc(100% - 210px);
+    .avatar-wrapper {
+      cursor: pointer;
+      position: relative;
+      padding-right: 8px;
+    }
   }
 </style>

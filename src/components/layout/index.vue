@@ -1,5 +1,5 @@
 <template>
-  <div class="app-wrapper">
+  <div class="app-wrapper" :class="sidebar ? 'openSideBar' : 'closeSideBar'">
     <div class="sidebar-container">
       <sun-menu></sun-menu>
     </div>
@@ -17,8 +17,14 @@
 <script>
 import SunHeader from './sunHeader.vue'
 import SunMenu from './sunMenu.vue'
+import {mapGetters} from 'vuex'
 export default {
   name: 'Layout',
+  computed: {
+    ...mapGetters([
+      'sidebar'
+    ])
+  },
   components: {SunHeader, SunMenu}
 }
 </script>
@@ -58,6 +64,17 @@ export default {
       width: 100%;
       margin-top: 50px;
       position: relative;
+    }
+  }
+  .closeSideBar {
+    > .sidebar-container {
+      width: $closeSideBarWidth;
+    }
+    > .main-container {
+      margin-left: $closeSideBarWidth;
+    }
+    /deep/ .navbar {
+      width: calc(100% - #{$closeSideBarWidth});
     }
   }
 </style>

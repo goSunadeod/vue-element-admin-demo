@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import utlMath from 'utils/math'
+import utlMath from '@/utils/math'
 export default {
   name: 'Eslint',
   data () {

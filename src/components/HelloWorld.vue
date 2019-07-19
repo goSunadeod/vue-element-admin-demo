@@ -1,13 +1,15 @@
 <template>
   <div class="hello">
     <section>
+      <p style="display: flex; justify-content: space-between">
+        <span>1111121212122121</span>
+        <span>99989889898989898</span>
+      </p>
       <header :class="$style.title">Hello World</header>
       <div>
         <p :class="$style['div-content']" v-for="item in 150" :key="item">哈哈哈哈</p>
       </div>
     </section>
-    <p>{{msg}}</p>
-    <svg-icon iconClass="money"></svg-icon>
   </div>
 </template>
 

@@ -8,18 +8,17 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "pre-lint": "node check.js"
   },
-  "warn": "注意 <  pre-lint: node check.js  >代码应放在scripts里，注释是为了先把commit校验eslint钩子关闭",
   "dependencies": {
     "element-ui": "^2.10.1",
     "lodash": "^4.17.11",
     "vue": "^2.5.2",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.1.1"
   },
-  "precommit": [
-    "pre-lint"
-  ],
+  "warn": "注意 < precommit: [pre-lint], >代码应代替warn，注释是为了先把commit校验eslint钩子关闭",
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
@@ -47,6 +46,7 @@
     "file-loader": "^1.1.4",
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
+    "js-cookie": "^2.2.0",
     "node-notifier": "^5.1.2",
     "node-sass": "^4.12.0",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
@@ -58,6 +58,7 @@
     "pre-commit": "^1.2.2",
     "rimraf": "^2.6.0",
     "sass-loader": "^7.1.0",
+    "screenfull": "^4.2.0",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
     "svg-sprite-loader": "^4.1.6",

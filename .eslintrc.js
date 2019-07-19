@@ -37,7 +37,7 @@ module.exports = {
     'no-spaced-func': 2, //函数调用时 函数名与()之间不能有空格
     'no-trailing-spaces': 2, //禁止一行结束后面有空格
     'no-undef': 2, //不能有未定义的变量
-    'space-before-function-paren': ['error', {
+    'space-before-function-paren': ['off', {
       'anonymous': 'always', //匿名函数表达式
       'named': 'always', // 命名函数表达式
       'asyncArrow': 'always' // 异步箭头函数表达式
