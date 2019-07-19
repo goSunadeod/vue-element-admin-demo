@@ -4,7 +4,8 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.scss' // global css
-import './utils/register'
+import './icons' // icon
+import './utils/register' // 组件全局注册
 
 Vue.config.productionTip = false
 

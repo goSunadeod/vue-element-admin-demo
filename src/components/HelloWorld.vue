@@ -6,15 +6,18 @@
         <p :class="$style['div-content']" v-for="item in 150" :key="item">哈哈哈哈</p>
       </div>
     </section>
+    <p>{{msg}}</p>
+    <svg-icon iconClass="money"></svg-icon>
   </div>
 </template>
 
 <script>
+
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'CSS module'
     }
   }
 }
