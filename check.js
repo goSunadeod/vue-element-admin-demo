@@ -1,3 +1,4 @@
+return;
 const { exec } = require('child_process');
 const { CLIEngine } = require('eslint');
 
