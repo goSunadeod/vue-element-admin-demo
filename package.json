@@ -10,7 +10,7 @@
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js"
   },
-   "pre-lint": "node check.js", // 注意此块放在scripts里，注释是为了先把commit校验eslint钩子关闭
+  "warn": "注意 <  pre-lint: node check.js  >代码应放在scripts里，注释是为了先把commit校验eslint钩子关闭",
   "dependencies": {
     "element-ui": "^2.10.1",
     "lodash": "^4.17.11",
