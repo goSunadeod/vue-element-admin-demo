@@ -22,7 +22,7 @@ export const getInfoDetail = function({ commit, state }) {
         reject('getInfo: roles must be a non-null array!')
       }
 
-      commit(types.SET_ROLES, roles)
+      commit(types.SET_ROLES, [...roles])
       resolve(data)
     }).catch(error => {
       reject(error)
@@ -40,7 +40,6 @@ export const generateRoutes = function({ commit }, roles) {
       resolve(accessedRoutes)
     } else {
       getRoutes().then(res => {
-        console.log(res)
         accessedRoutes = filterAsyncRoutes(res.asyncRoutes, roles)
         commit(types.SET_ROUTES, accessedRoutes)
         resolve(accessedRoutes)

@@ -1,30 +1,62 @@
 <template>
   <div class="menu-wrapper">
-    <div v-for="item in 10" :key="item" class="el-submenu__titles">菜单</div>
+    <el-menu
+      :default-active="activeMenu"
+      :collapse="isCollapse"
+      :background-color="variables.menuBg"
+      :text-color="variables.menuText"
+      :unique-opened="false"
+      :active-text-color="variables.menuActiveText"
+      :collapse-transition="false"
+      mode="vertical"
+    >
+      <menu-item v-for="route in routes" :key="route.path" :item="route" :basePath="route.path"/>
+    </el-menu>
   </div>
 </template>
 
-<script></script>
+<script>
+import {mapGetters} from 'vuex'
+import variables from '@/styles/variables.scss'
+import MenuItem from './menuItem'
+export default {
+  name: 'sunMenu',
+  components: {
+    MenuItem
+  },
+  computed: {
+    ...mapGetters([
+      'routes',
+      'sidebar'
+    ]),
+    variables() {
+      return variables
+    },
+    isCollapse() {
+      return !this.sidebar
+    },
+    activeMenu() {
+      const route = this.$route
+      const { path } = route
+      let defaultOpeneds = path.split('/')
+      // 移除第一个空元素
+      if (defaultOpeneds[0] === '') {
+        defaultOpeneds.shift()
+      }
+      return defaultOpeneds[defaultOpeneds.length - 1]
+    }
+  },
+  data() {
+    return {
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
   .menu-wrapper {
     height: 100%;
     position: relative;
     overflow: scroll;
-    .el-submenu__titles {
-      height: 56px;
-      color: #f62dff;
-      line-height: 56px;
-      font-size: 14px;
-      padding: 0 20px;
-      list-style: none;
-      cursor: pointer;
-      position: relative;
-      -webkit-transition: border-color .3s,background-color .3s,color .3s;
-      transition: border-color .3s,background-color .3s,color .3s;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      white-space: nowrap;
-    }
   }
 </style>

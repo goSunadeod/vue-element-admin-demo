@@ -9,22 +9,31 @@ export const constantRoutes = [
     name: 'layout',
     redirect: '/index',
     component: Layout,
+    meta: {title: '首页', icon: 'set'},
     children: [
       {
         path: 'index',
+        name: 'Dashboard',
+        component: () => import('@/components/dashboard/index'),
+        meta: {title: 'dashboard'}
+      },
+      {
+        path: 'hello',
         name: 'HelloWorld',
-        // component: () => import('@components/start'),
-        component: () => import('@/components/HelloWorld')
+        component: () => import('@/components/HelloWorld'),
+        meta: {title: 'helloDemo'}
       },
       {
-        path: '/demo',
+        path: 'demo',
         name: 'Eslint',
-        component: () => import('@/components/Eslint')
+        component: () => import('@/components/Eslint'),
+        meta: {title: 'eslintDemo', icon: 'demo'}
       },
       {
-        path: '/demoTable',
+        path: 'demoTable',
         name: 'demoTable',
-        component: () => import('@/components/TableDemo')
+        component: () => import('@/components/TableDemo'),
+        meta: {title: 'tableDemo', icon: 'dashboard'}
       }
     ]
   },
@@ -40,10 +49,9 @@ export const asyncRoutes = [
     path: '/permission',
     component: Layout,
     redirect: '/permission/page',
-    alwaysShow: true, // will always show the root menu
     name: 'Permission',
     meta: {
-      title: 'Permission',
+      title: '权限测试页',
       icon: 'lock',
       roles: ['admin', 'editor'] // you can set roles in root nav
     },
@@ -53,7 +61,7 @@ export const asyncRoutes = [
         component: () => import('@/components/permission/page'),
         name: 'PagePermission',
         meta: {
-          title: 'Page Permission',
+          title: '页面权限',
           roles: ['admin'] // or you can only set roles in sub nav
         }
       },
@@ -62,7 +70,7 @@ export const asyncRoutes = [
         component: () => import('@/components/permission/directive'),
         name: 'DirectivePermission',
         meta: {
-          title: 'Directive Permission'
+          title: '指令权限'
           // if do not set roles, means: this page does not require permission
         }
       }
