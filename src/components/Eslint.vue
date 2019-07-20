@@ -11,7 +11,6 @@
 
 <script>
 import utlMath from '@/utils/math'
-import {getInfo} from '@/api/app-api'
 export default {
   name: 'Eslint',
   data () {
@@ -38,9 +37,6 @@ export default {
       }
     },
     getData() {
-      getInfo().then(res => {
-        console.log(res)
-      })
     },
     handleClick () {
       console.log(utlMath.divide(123.3, 100)) // 123.3 / 100 ==> 1.233

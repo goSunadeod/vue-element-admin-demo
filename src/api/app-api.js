@@ -1,8 +1,17 @@
 import { service } from './request'
 
-export function getInfo() {
+export function getInfo(token) {
   return service({
-    url: '/info',
-    method: 'get'
+    url: '/user/info',
+    method: 'get',
+    params: { token }
+  })
+}
+
+export function getRoutes(role) {
+  return service({
+    url: '/user/routes',
+    method: 'get',
+    params: { role }
   })
 }

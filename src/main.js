@@ -5,6 +5,7 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.scss' // global css
 import './icons' // icon
+import './permission' // permission control
 import store from './store' // vuex
 import './utils/register' // 组件全局注册
 
