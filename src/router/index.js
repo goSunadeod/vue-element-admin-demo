@@ -17,18 +17,23 @@ export default new Router({
           name: 'HelloWorld',
           // component: () => import('@components/start'),
           component: () => import('@/components/HelloWorld')
+        },
+        {
+          path: '/demo',
+          name: 'Eslint',
+          component: () => import('@/components/Eslint')
+        },
+        {
+          path: '/demoTable',
+          name: 'demoTable',
+          component: () => import('@/components/TableDemo')
         }
       ]
     },
     {
-      path: '/demo',
-      name: 'Eslint',
-      component: () => import('@/components/Eslint')
-    },
-    {
-      path: '/demoTable',
-      name: 'demoTable',
-      component: () => import('@/components/TableDemo')
+      path: '/404',
+      component: () => import('@/components/error-page/404'),
+      hidden: true
     }
   ]
 })

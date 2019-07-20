@@ -21,6 +21,7 @@
   "warn1": "注意 < precommit: [pre-lint],>代码应代替warn，注释是为了先把commit校验eslint钩子关闭",
   "devDependencies": {
     "autoprefixer": "^7.1.2",
+    "axios": "^0.19.0",
     "babel-core": "^6.22.1",
     "babel-eslint": "^8.2.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
