@@ -11,7 +11,6 @@ export const getInfoDetail = function({ commit, state }) {
   return new Promise((resolve, reject) => {
     getInfo(state.token).then(response => {
       const { data } = response
-
       if (!data) {
         reject('Verification failed, please Login again.')
       }
@@ -50,19 +49,18 @@ export const generateRoutes = function({ commit }, roles) {
   })
 }
 
-export const changeRoles = function({ commit }, role) {
+export const changeRoles = function({ dispatch, commit }, role) {
   return new Promise(async resolve => {
     const token = role + '-token'
 
     commit('SET_TOKEN', token)
     setToken(token)
 
-    const { roles } = await getInfo(token)
+    const { roles } = await dispatch('getInfoDetail')
 
     resetRouter()
-
     // generate accessible routes map based on roles
-    const accessRoutes = await generateRoutes(roles)
+    const accessRoutes = await dispatch('generateRoutes', roles)
 
     // dynamically add accessible routes
     router.addRoutes(accessRoutes)

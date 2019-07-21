@@ -24,7 +24,7 @@ export default {
       },
       set(val) {
         this.changeRoles(val).then(() => {
-          console.log('切换权限' + val)
+          this.$emit('change')
         })
       }
     }

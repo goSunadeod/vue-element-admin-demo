@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <switch-roles />
+    <switch-roles @change="handleRolesChange"/>
   </div>
 </template>
 
@@ -11,6 +11,9 @@ export default {
   name: 'PagePermission',
   components: { SwitchRoles },
   methods: {
+    handleRolesChange() {
+      console.log('313')
+    }
   }
 }
 </script>

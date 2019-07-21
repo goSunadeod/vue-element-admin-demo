@@ -1,4 +1,5 @@
 import Layout from '@/components/layout' // Layout 是架构组件，不在后台返回，在文件里单独引入
+import store from '@/store'
 // eslint-disable-next-line
 const _import = require('../router/_import_' + process.env.NODE_ENV)// 获取组件的方法
 
@@ -44,4 +45,28 @@ export function filterAsyncRoutersByApi(asyncRouterMap) { // 遍历后台传来�
   })
 
   return accessedRouters
+}
+
+/**
+ * @param {Array} value
+ * @returns {Boolean}
+ * @example see @/views/permission/directive.vue
+ */
+export default function checkPermission(value) {
+  if (value && value instanceof Array && value.length > 0) {
+    const roles = store.getters && store.getters.roles
+    const permissionRoles = value
+
+    const hasPermission = roles.some(role => {
+      return permissionRoles.includes(role)
+    })
+
+    if (!hasPermission) {
+      return false
+    }
+    return true
+  } else {
+    console.error(`need roles! Like v-permission="['admin','editor']"`) // eslint-disable-line
+    return false
+  }
 }
