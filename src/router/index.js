@@ -38,6 +38,34 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/testDemo',
+    component: Layout,
+    redirect: '/testDemo/one',
+    children: [
+      {
+        path: 'one',
+        component: () => import('@/components/test/testDemo'),
+        name: 'TestDemo',
+        meta: { title: 'One菜单父级', icon: 'dashboard' }
+      }
+    ]
+  },
+  {
+    path: '/test',
+    component: Layout,
+    redirect: '/test/one',
+    alwaysShow: true, // will always show the root menu
+    meta: { title: '测试单个菜单', icon: 'dashboard' },
+    children: [
+      {
+        path: 'one',
+        component: () => import('@/components/test/index'),
+        name: 'Test',
+        meta: { title: 'One菜单子级', icon: 'dashboard' }
+      }
+    ]
+  },
+  {
     path: '/404',
     component: () => import('@/components/error-page/404'),
     hidden: true
@@ -50,6 +78,7 @@ export const asyncRoutes = [
     component: Layout,
     redirect: '/permission/page',
     name: 'Permission',
+    alwaysShow: true, // will always show the root menu
     meta: {
       title: '权限测试页',
       icon: 'lock',

@@ -1,7 +1,7 @@
 <template>
   <div v-if="!item.hidden" class="menu-wrapper">
     <el-submenu
-      v-if="item.children"
+      v-if="item.children && (item.children.length > 1 || (item.children.length === 1 && item.alwaysShow))"
       :key="item.path"
       :index="item.path"
       popper-append-to-body
@@ -18,7 +18,10 @@
       </menu-item>
     </el-submenu>
     <el-menu-item v-else :key="item.path" :index="item.path" @click="navClick">
-      <template slot="title">
+      <template v-if="item.children && item.children.length === 1 && !item.alwaysShow">
+        <item v-if="item.children[0].meta" :icon="item.children[0].meta && item.children[0].meta.icon" :title="item.children[0].meta.title" />
+      </template>
+      <template slot="title" v-else>
         <item v-if="item.meta" :icon="item.meta && item.meta.icon" :title="item.meta.title" />
       </template>
     </el-menu-item>

@@ -29,8 +29,11 @@ export function filterAsyncRoutes(routes, roles) {
 }
 
 // 针对后台返回路由
-export function filterAsyncRoutersByApi(asyncRouterMap) { // 遍历后台传来的路由字符串，转换为组件对象
+export function filterAsyncRoutersByApi(asyncRouterMap, roles) { // 遍历后台传来的路由字符串，转换为组件对象
   const accessedRouters = asyncRouterMap.filter(route => {
+    if (!hasPermission(roles, route)) {
+      return
+    }
     if (route.component) {
       if (route.component === 'Layout') { // Layout组件特殊处理
         route.component = Layout
@@ -39,7 +42,7 @@ export function filterAsyncRoutersByApi(asyncRouterMap) { // 遍历后台传来�
       }
     }
     if (route.children && route.children.length) {
-      route.children = filterAsyncRoutersByApi(route.children)
+      route.children = filterAsyncRoutersByApi(route.children, roles)
     }
     return true
   })
