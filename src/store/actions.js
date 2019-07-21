@@ -1,6 +1,7 @@
 import * as types from './mutation-types'
 import {getInfo, getRoutes} from '@/api/app-api'
-import {filterAsyncRoutes} from '@/utils/permission'
+// eslint-disable-next-line
+import {filterAsyncRoutes, filterAsyncRoutersByApi} from '@/utils/permission'
 import router, { resetRouter, asyncRoutes } from '@/router'
 import {setToken} from '@/utils/cache'
 
@@ -40,7 +41,8 @@ export const generateRoutes = function({ commit }, roles) {
       resolve(accessedRoutes)
     } else {
       getRoutes().then(res => {
-        accessedRoutes = filterAsyncRoutes(res.asyncRoutes, roles)
+        // accessedRoutes = filterAsyncRoutes(asyncRoutes, roles) // 针对前台写死
+        accessedRoutes = filterAsyncRoutersByApi(res.asyncRoutes, roles) // 针对后台返回
         commit(types.SET_ROUTES, accessedRoutes)
         resolve(accessedRoutes)
       })
@@ -55,7 +57,7 @@ export const changeRoles = function({ commit }, role) {
     commit('SET_TOKEN', token)
     setToken(token)
 
-    const { roles } = await getInfo()
+    const { roles } = await getInfo(token)
 
     resetRouter()
 

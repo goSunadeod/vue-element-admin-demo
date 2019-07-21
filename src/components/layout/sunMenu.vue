@@ -58,5 +58,8 @@ export default {
     height: 100%;
     position: relative;
     overflow: scroll;
+    /deep/ .svg-icon {
+      margin-right: 16px;
+    }
   }
 </style>

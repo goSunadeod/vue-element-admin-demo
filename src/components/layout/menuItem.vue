@@ -57,3 +57,10 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="scss">
+  .el-menu-item {
+    display: flex;
+    align-items: center;
+  }
+</style>
