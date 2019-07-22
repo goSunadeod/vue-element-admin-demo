@@ -50,6 +50,9 @@ export default {
       left: 0;
       z-index: 1001;
       overflow: hidden;
+      /deep/ .el-menu {
+        width: 100% !important;
+      }
     }
     .main-container {
       min-height: 100%;
@@ -69,6 +72,18 @@ export default {
   .closeSideBar {
     > .sidebar-container {
       width: $closeSideBarWidth;
+      /deep/ .menu-wrapper {
+        overflow-x: hidden;
+        .el-submenu__title {
+          padding: 0 !important;
+          .svg-icon {
+            margin-left: 20px;
+          }
+        }
+        .el-submenu__icon-arrow {
+          display: none;
+        }
+      }
     }
     > .main-container {
       margin-left: $closeSideBarWidth;
