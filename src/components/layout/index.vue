@@ -52,6 +52,7 @@ export default {
       overflow: hidden;
       /deep/ .el-menu {
         width: 100% !important;
+        border: none;
       }
     }
     .main-container {
@@ -63,7 +64,7 @@ export default {
     .app-main {
       /* navbar height = 50 */
       height: calc(100vh - 50px);
-      overflow-y: auto;
+      overflow-y: scroll;
       width: 100%;
       margin-top: 50px;
       position: relative;
@@ -88,7 +89,7 @@ export default {
     > .main-container {
       margin-left: $closeSideBarWidth;
     }
-    /deep/ .navbar {
+    /deep/ .fix-header {
       width: calc(100% - #{$closeSideBarWidth});
     }
   }

@@ -1,19 +1,21 @@
 <template>
-  <div class="navbar" >
-    <div class="menu-fold" @click="toggleClick">
-      <i class="fold-icon" :class="sidebar ? 'el-icon-s-fold' : 'el-icon-s-unfold'"></i>
-    </div>
-    <div class="avatar-content">
-      <screenfull class="right-menu-item hover-effect" />
-      <el-dropdown trigger="click">
-        <div class="avatar-wrapper">
-          <el-avatar :src="src" :size="40" class="avatar-image"></el-avatar>
-          <i class="el-icon-caret-bottom"></i>
-        </div>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item icon="el-icon-check">Amazing</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+  <div class="fix-header" >
+    <div class="navbar">
+      <div class="menu-fold" @click="toggleClick">
+        <i class="fold-icon" :class="sidebar ? 'el-icon-s-fold' : 'el-icon-s-unfold'"></i>
+      </div>
+      <div class="avatar-content">
+        <screenfull class="right-menu-item hover-effect" />
+        <el-dropdown trigger="click">
+          <div class="avatar-wrapper">
+            <el-avatar :src="src" :size="40" class="avatar-image"></el-avatar>
+            <i class="el-icon-caret-bottom"></i>
+          </div>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item icon="el-icon-check">Amazing</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </div>
     </div>
   </div>
 </template>
@@ -51,10 +53,11 @@ export default {
 
 <style lang="scss" scoped>
   @import "~@/styles/variables.scss";
-  .navbar {
+  .fix-header {
     position: fixed;
-    z-index: 99;
+    z-index: 9;
     top: 0;
+    right: 0;
     height: 50px;
     width: calc(100% - #{$sideBarWidth});
     box-sizing: border-box;
@@ -62,6 +65,8 @@ export default {
     background: #fff;
     -webkit-box-shadow: 0 1px 4px rgba(0,21,41,.08);
     box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  }
+  .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
