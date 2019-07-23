@@ -9,7 +9,7 @@
 
 ## 功能
 
-- 自定义eslint检查，增加commit eslint校验钩子
+- 自定义eslint检查，增加commit eslint校验钩子(失效了，原因：钩子 hooks文件已被我删除，太影响我自己玩了)
 - 放了点常用的工具函数（包括math，object等）
 - 基于el-table封装，实现分页组件等的分离
 - 自动注册组件某些目录下的特定vue组件为全局组件
@@ -23,10 +23,10 @@
 
 ```bash
 # 克隆项目
-git clone https://github.com/PanJiaChen/vue-element-admin.git
+git clone https://github.com/goSunadeod/vue-element-admin-demo.git
 
 # 进入项目目录
-cd vue-element-admin
+cd vue-element-admin-demo
 
 # 安装依赖
 npm install

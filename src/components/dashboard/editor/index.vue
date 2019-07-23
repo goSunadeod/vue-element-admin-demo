@@ -1,5 +1,5 @@
 <template>
   <div>
-    dashboard editor（动态路由）
+    dashboard editor（动态组件）
   </div>
 </template>
