@@ -11,7 +11,7 @@
       </template>
       <menu-item
         class="nest-menu"
-        :base-path="`${parentPath}${child.path}/`"
+        :base-path="`${parentPath}${child.path}`"
         v-for="child in item.children"
         :item="child"
         :key="child.path">

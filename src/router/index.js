@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/components/layout'
+import nestedRouter from './modules/nested'
 
 Vue.use(Router)
 export const constantRoutes = [
@@ -37,6 +38,7 @@ export const constantRoutes = [
       }
     ]
   },
+  nestedRouter,
   {
     path: '/testDemo',
     component: Layout,
