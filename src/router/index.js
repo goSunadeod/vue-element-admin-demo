@@ -4,6 +4,19 @@ import Layout from '@/components/layout'
 import nestedRouter from './modules/nested'
 
 Vue.use(Router)
+
+/**
+ * route属性部分介绍
+ * hidden:     true 如果设置为true，就不会展示其菜单
+ * alwaysShow: true 如果设置为true， 一定会展示根菜单，但是如果是false，如果其下有一个以上（不包含一个）
+ *              其就是正常的嵌套路由菜单，否则将不会显示根菜单
+ * meta : {
+    roles: ['admin','editor']    控制菜单权限 (可以设置多个)
+    title: 'title'               菜单上显示的名字
+    icon: 'svg-name'             菜单上显示的icon
+  }
+ */
+
 export const constantRoutes = [
   {
     path: '/',
