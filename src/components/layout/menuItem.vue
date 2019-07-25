@@ -17,7 +17,7 @@
         :key="child.path">
       </menu-item>
     </el-submenu>
-    <el-menu-item v-else :key="item.path" :index="item.path" @click="navClick">
+    <el-menu-item v-else :key="item.path" :index="item.path" @click="navClick(item)">
       <template v-if="item.children && item.children.length === 1 && !item.alwaysShow">
         <item v-if="item.children[0].meta" :icon="item.children[0].meta && item.children[0].meta.icon" :title="item.children[0].meta.title" />
       </template>
@@ -50,7 +50,7 @@ export default {
     }
   },
   methods: {
-    navClick() {
+    navClick(item) {
       let path = this.basePath
       if (path !== '/' && path.endsWith('/')) {
         path = path.substring(0, path.length - 1)

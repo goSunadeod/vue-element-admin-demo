@@ -54,7 +54,7 @@ export default {
     // 表格头样式
     headerCellStyle: {
       default: () => ({
-        background: '#ea43f6',
+        background: '#d3969f',
         color: '#333333',
       }),
     },

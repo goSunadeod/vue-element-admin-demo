@@ -48,6 +48,13 @@ export const constantRoutes = [
         name: 'demoTable',
         component: () => import('@/components/TableDemo'),
         meta: {title: 'tableDemo', icon: 'dashboard'}
+      },
+      {
+        path: 'demoTableDetail',
+        name: 'demoTableDetail',
+        component: () => import('@/components/TableDemo/TableDetail'),
+        meta: { title: 'demoTableDetail', activeMenu: 'demoTable' },
+        hidden: true
       }
     ]
   },
@@ -79,6 +86,11 @@ export const constantRoutes = [
         meta: { title: 'One菜单子级', icon: 'dashboard' }
       }
     ]
+  },
+  {
+    path: '/401',
+    component: () => import('@/components/error-page/401'),
+    hidden: true
   },
   {
     path: '/404',

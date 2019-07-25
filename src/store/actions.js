@@ -15,7 +15,7 @@ export const getInfoDetail = function({ commit, state }) {
         reject('Verification failed, please Login again.')
       }
 
-      const { roles } = data
+      const { roles, perms } = data
 
       // roles must be a non-empty array
       if (!roles || roles.length <= 0) {
@@ -23,6 +23,9 @@ export const getInfoDetail = function({ commit, state }) {
       }
 
       commit(types.SET_ROLES, [...roles])
+      if (perms && Array.isArray(perms) && perms.length > 0) {
+        commit(types.SET_PERMS, [...perms])
+      }
       resolve(data)
     }).catch(error => {
       reject(error)

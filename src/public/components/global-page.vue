@@ -22,7 +22,7 @@ export default {
 <style scoped lang="scss">
   .global-page {
     &__title {
-      color: rebeccapurple;
+      color: #a6a6a6;
       font-size: 18px;
       font-weight: 500;
     }

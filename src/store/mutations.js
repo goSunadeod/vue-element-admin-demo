@@ -16,6 +16,9 @@ const mutations = {
   },
   [types.SET_ROUTES] (state, routes) {
     state.routes = constantRoutes.concat(routes)
+  },
+  [types.SET_PERMS] (state, perms) {
+    state.perms = perms
   }
 }
 export default mutations

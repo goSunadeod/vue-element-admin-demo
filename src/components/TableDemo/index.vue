@@ -9,7 +9,11 @@
         :cols="cols"
         :get-data="getData"
       >
-        <el-table-column prop="age" label="年龄" align="center"></el-table-column>
+        <el-table-column prop="code" label="编号" align="center">
+          <template slot-scope="scope">
+            <router-link to="/demoTableDetail" class="link">{{scope.row.code}}</router-link>
+          </template>
+        </el-table-column>
       </global-table>
     </div>
   </div>
@@ -32,8 +36,8 @@ export default {
   data () {
     return {
       tableData: [
-        {name: '1', sex: 'man', age: 18, love: '知男而上'},
-        {name: '2', sex: 'unknown', age: 20}
+        {name: '1', sex: 'man', code: 'love', love: '知男而上'},
+        {name: '2', sex: 'unknown', code: 'hate'}
       ],
       cols: [
         {
@@ -62,4 +66,17 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+  .link {
+    color: #2cb044;
+    transition: 600ms ease all;
+    &:hover {
+      color: #ff3f3c;
+
+      &:before,
+      &:after {
+        width: 100%;
+        transition: 600ms ease all;
+      }
+    }
+  }
 </style>
