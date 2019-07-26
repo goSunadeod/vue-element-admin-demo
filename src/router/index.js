@@ -53,7 +53,7 @@ export const constantRoutes = [
         path: 'demoTableDetail',
         name: 'demoTableDetail',
         component: () => import('@/components/TableDemo/TableDetail'),
-        meta: { title: 'demoTableDetail', activeMenu: 'demoTable' },
+        meta: { title: 'demoTableDetail', activeMenu: 'demoTable', perms: ['detailTablePage'] },
         hidden: true
       }
     ]

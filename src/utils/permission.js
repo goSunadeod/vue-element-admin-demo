@@ -73,3 +73,19 @@ export default function checkPermission(value) {
     return false
   }
 }
+
+// 额外另加 其实没什么用 就是想看一下401效果（因为动态路由其实不需要401）
+export function hasPerms(toPerm) {
+  if (toPerm && toPerm instanceof Array && toPerm.length > 0) {
+    const perms = store.getters && store.getters.perms
+    console.log(perms, toPerm)
+    const hasPermsFlag = perms.some(role => {
+      return toPerm.includes(role)
+    })
+    if (hasPermsFlag) {
+      return false
+    }
+    return true
+  }
+  return true
+}

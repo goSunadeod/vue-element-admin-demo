@@ -2,6 +2,7 @@ import router from './router'
 import store from './store'
 import { Message } from 'element-ui'
 import getPageTitle from '@/utils/get-page-title'
+import {hasPerms} from '@/utils/permission'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 
@@ -14,7 +15,14 @@ router.beforeEach(async(to, from, next) => {
   document.title = getPageTitle(to.meta.title)
   const hasRoles = store.getters.roles && store.getters.roles.length > 0
   if (hasRoles) {
-    next()
+    // next()
+    // 没有动态改变权限的需求可直接next() 删除下方权限判断 ↓
+    if ((store.getters.roles.includes('admin')) || !to.meta.perms || hasPerms(to.meta.perms)) {
+      next()
+    } else {
+      next({path: '/401', replace: true, query: { noGoBack: true }})
+    }
+    // 可删 ↑
   } else {
     try {
       const { roles } = await store.dispatch('getInfoDetail')
