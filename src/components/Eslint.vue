@@ -4,7 +4,7 @@
       你好 我就是向测试一下eslint
     </div>
     <button @click="handleClick">工具类函数测试</button>
-    <el-button @click="getData">mock测试</el-button>
+    <el-button @click="getData">测试</el-button>
     <global-button desc="我来"></global-button>
   </global-page>
 </template>
@@ -37,6 +37,7 @@ export default {
       }
     },
     getData() {
+      this.$router.push({ path: '/permission/directive?' + +new Date() })
     },
     handleClick () {
       console.log(utlMath.divide(123.3, 100)) // 123.3 / 100 ==> 1.233
