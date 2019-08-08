@@ -24,7 +24,6 @@ export function filterAsyncRoutes(routes, roles) {
       res.push(tmp)
     }
   })
-  console.log(res, 1)
   return res
 }
 
@@ -78,7 +77,6 @@ export default function checkPermission(value) {
 export function hasPerms(toPerm) {
   if (toPerm && toPerm instanceof Array && toPerm.length > 0) {
     const perms = store.getters && store.getters.perms
-    console.log(perms, toPerm)
     const hasPermsFlag = perms.some(role => {
       return toPerm.includes(role)
     })

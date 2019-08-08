@@ -50,7 +50,7 @@ export default {
     }
   },
   methods: {
-    navClick(item) {
+    navClick() {
       let path = this.basePath
       if (path !== '/' && path.endsWith('/')) {
         path = path.substring(0, path.length - 1)

@@ -1,32 +1,19 @@
-// https://cn.eslint.org/docs/rules/ eslint中文网规则
-
 module.exports = {
   root: true,
-  parserOptions: {
-    parser: 'babel-eslint' // 解析器
-  },
   env: {
-    browser: true, // 预定义的全局变量 这是浏览器环境
+    node: true
   },
-  extends: [ // 扩展配置规则  //eslint:recommended 这是eslint的官方推荐
+  'extends': [
     'plugin:vue/essential',
-    'standard' // 标准
+    'eslint:recommended'
   ],
-  plugins: [
-    'vue'
-  ],
-  // 'off' -> 0 关闭规则
-  // 'warn' -> 1 开启警告规则
-  //'error' -> 2 开启错误规则
-  //always（默认）需要。。
-  //never 不允许
-  rules: {  // 指定检测规则（自定义）
+  rules: {
     'generator-star-spacing': 'off',  // 允许 async await
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-   // 'vue/script-indent': ['error', 2, {'baseIndent': 1}], // 统一缩进2个空格，数字1表示1倍缩进 用来解决export default 缩进问题
+    // 'vue/script-indent': ['error', 2, {'baseIndent': 1}], // 统一缩进2个空格，数字1表示1倍缩进 用来解决export default 缩进问题
     'comma-dangle': ['error', 'never'], //是否允许对象中出现结尾逗号
     'no-cond-assign': 2, // 禁止条件语句的条件中出现赋值运算符
-    // 'no-console': 2, // 禁止出现consolequote-props
+    'no-console': 0, // 禁止出现consolequote-props
     'no-unreachable': 2, //在return，throw，continue，break语句后不允许出现不可能到达的语句
     'default-case': 0, //在switch语句中需要有default语句
     'eqeqeq': ['error', 'smart'], //比较的时候使用严格等于
@@ -57,12 +44,7 @@ module.exports = {
     // 'arrow-body-style': [1, 'as-needed'], // 箭头函数后 {}
     'prefer-const': 0, // const 代替let
   },
-  // overrides:[ // 解决webstorm script标签缩进问题
-  //   {
-  //     'files':['*.vue'],
-  //     'rules':{
-  //       'indent':'off'
-  //     }
-  //   }
-  // ]
+  parserOptions: {
+    parser: 'babel-eslint'
+  }
 }

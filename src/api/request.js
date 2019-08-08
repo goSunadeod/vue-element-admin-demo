@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // create an axios instance
 const service = axios.create({
-  baseURL: process.env.BASE_API, // api的base_url
+  baseURL: process.env.VUE_APP_BASE_API, // api的base_url
   timeout: 5000 // request timeout
   // headers: {
   //   Authorization: store.getters.token
@@ -21,7 +21,7 @@ service.interceptors.request.use(
   },
   error => {
     // Do something with request error
-    console.log(error) // for debug
+    // console.log(error) // for debug
     Promise.reject(error)
   }
 )
@@ -35,7 +35,7 @@ service.interceptors.response.use(
     }
   },
   error => {
-    console.log('err' + error) // for debug
+    // console.log('err' + error) // for debug
     return Promise.reject(error)
   }
 )
