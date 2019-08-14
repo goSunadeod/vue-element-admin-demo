@@ -16,6 +16,18 @@ module.exports = {
     lintOnSave: process.env.NODE_ENV === 'development',
     // webpack配置
     chainWebpack(config) {
+
+        config.module
+          .rule('js')
+          .exclude.add(/\.worker\.js$/)
+          .end()
+        config.module
+          .rule('worker')
+          .test(/\.worker\.js$/)
+          .use('worker-loader')
+          .loader('worker-loader')
+          .end()
+
         // set svg-sprite-loader
         config.module
           .rule('svg')

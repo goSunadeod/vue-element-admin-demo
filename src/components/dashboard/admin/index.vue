@@ -14,6 +14,10 @@
       </ul>
       右击上面的模块试试
     </div>
+    <div>
+      <p>斐波那契求和30：通过axios返回</p>
+      <b>{{number}}</b>
+    </div>
     <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">
       <li @click="closeSelf">Close</li>
       <li @click="closeOthers">Close Others</li>
@@ -24,6 +28,7 @@
 
 <script>
 import utlMath from '@/utils/math'
+import ExampleWorker from '@/utils/example.worker'
 export default {
   name: 'dashboard',
   data() {
@@ -35,7 +40,8 @@ export default {
       selectedTag: {},
       top: 0,
       left: 0,
-      visible: false
+      visible: false,
+      number: '计算中。。'
     }
   },
   watch: {
@@ -79,7 +85,26 @@ export default {
     },
     closeAll() {
       this.list = []
+    },
+    init() {
+      this.worker = new ExampleWorker()
+      console.log('worker 初始化')
+
+      this.worker.onmessage = (event) => {
+        this.number = event.data
+        console.log('主线： 监听worker返回数据', event)
+      }
+
+      const message = { number: 30 }
+      console.log('主线： 传递给worker 40', message)
+      this.worker.postMessage(message)
     }
+  },
+  mounted() {
+    this.init()
+  },
+  beforeDestroy() {
+    this.worker.terminate()
   }
 }
 </script>

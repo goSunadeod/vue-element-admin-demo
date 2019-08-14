@@ -15,3 +15,10 @@ export function getRoutes(role) {
     params: { role }
   })
 }
+
+export function getFibonacci(number) {
+  return service({
+    url: `/fibonacci?number=${number}`,
+    method: 'get'
+  })
+}
