@@ -50,6 +50,12 @@ export const constantRoutes = [
         meta: {title: 'tableDemo', icon: 'dashboard'}
       },
       {
+        path: 'roomTable',
+        name: 'roomTable',
+        component: () => import('@/components/TableDemo/roomTable'),
+        meta: {title: 'roomTable', icon: 'dashboard'}
+      },
+      {
         path: 'demoTableDetail',
         name: 'demoTableDetail',
         component: () => import('@/components/TableDemo/TableDetail'),

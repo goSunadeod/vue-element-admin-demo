@@ -15,7 +15,7 @@
       右击上面的模块试试
     </div>
     <div>
-      <p>斐波那契求和30：通过axios返回</p>
+      <p>斐波那契求和30：通过axios返回(使用web worker)</p>
       <b>{{number}}</b>
     </div>
     <ul v-show="visible" :style="{left:left+'px',top:top+'px'}" class="contextmenu">

@@ -22,3 +22,10 @@ export function getFibonacci(number) {
     method: 'get'
   })
 }
+
+export function getRoom() {
+  return service({
+    url: '/table/room',
+    method: 'get'
+  })
+}

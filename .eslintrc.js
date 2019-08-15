@@ -16,7 +16,7 @@ module.exports = {
     'no-console': 0, // 禁止出现consolequote-props
     'no-unreachable': 2, //在return，throw，continue，break语句后不允许出现不可能到达的语句
     'default-case': 0, //在switch语句中需要有default语句
-    'eqeqeq': ['error', 'smart'], //比较的时候使用严格等于
+    'eqeqeq': ['off', 'smart'], //比较的时候使用严格等于
     'no-alert': 2, //不允许使用alert，confirm，prompt语句
     'no-multi-spaces': 2, //不允许出现多余的空格
     'no-redeclare': 2, //不允许变量重复声明
