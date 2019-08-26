@@ -418,68 +418,68 @@
 </script>
 
 <style lang="scss" scoped>
-    $border: 1px solid #DDDDDD
+    $border: 1px solid #DDDDDD;
     /deep/ .el-table th.is-hidden > *,
     /deep/ .el-table td.is-hidden > * {
         visibility: unset
     }
     /deep/ .el-table {
-        border: none
-        border-left: $border
+        border: none;
+        border-left: $border;
         .room-header {
-            width: 100%
-            height: 100%
-            min-height: 30px
-            line-height: 30px
-            display: flex
-            justify-content: center
+            width: 100%;
+            height: 100%;
+            min-height: 30px;
+            line-height: 30px;
+            display: flex;
+            justify-content: center;
         }
     }
     /deep/ .el-table::before,
     /deep/ .el-table::after {
-        background-color: unset
+        background-color: unset;
     }
     /deep/ .el-table td {
-        padding: 0
+        padding: 0;
     }
     /deep/ .el-table .cell {
-        padding: 0
-        color: #222
+        padding: 0;
+        color: #222;
     }
     /deep/ .el-table--border td:first-child .cell,
     /deep/ .el-table--border th:first-child .cell {
-        padding: 0
+        padding: 0;
     }
     /deep/ .el-table__body tr.hover-row > td {
-        background-color: unset
+        background-color: unset;
     }
     /deep/ .el-table__fixed-right::before,
     /deep/ .el-table__fixed::before {
-        background: unset
-        height: 0px
+        background: unset;
+        height: 0px;
     }
 
     /deep/ .el-table tbody tr {
-        height: unset
+        height: unset;
     }
     /deep/ .color_list {
-        text-align: right
-        font-size: 14px
-        height: 20px
+        text-align: right;
+        font-size: 14px;
+        height: 20px;
         span {
-            display: inline-block
-            font-size: 14px
-            line-height: 20px
-            height: 20px
-            margin-left: 10px
+            display: inline-block;
+            font-size: 14px;
+            line-height: 20px;
+            height: 20px;
+            margin-left: 10px;
             i {
-                display: inline-block
-                border: 1px solid #999
-                width: 14px
-                padding: 6px 0
-                vertical-align: middle
-                line-height: 20px
-                margin-top: -3px
+                display: inline-block;
+                border: 1px solid #999;
+                width: 14px;
+                padding: 6px 0;
+                vertical-align: middle;
+                line-height: 20px;
+                margin-top: -3px;
             }
         }
     }
