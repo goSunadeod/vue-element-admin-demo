@@ -1,5 +1,5 @@
 import { service } from './request'
-
+// mock 平台挂了
 export function getInfo(token) {
   return service({
     url: '/user/info',

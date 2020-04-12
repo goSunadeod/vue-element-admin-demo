@@ -93,17 +93,23 @@ module.exports = {
         host: 'localhost',
         port: 8082,                                 // 端口号
         https: false,
-        hotOnly: false,                             // https:{type:Boolean}
-        proxy: {                                        // 配置跨域
-            '/api':{
-                target: 'http://localhost:8082/api/', //源地址
-                changeOrigin:true,                  //改变源
-                ws:true,                            //是否代理websockets
-                pathRewrite:{
-                    '^/api': '/api'
-                }
-            }
-        },                                           // 配置跨域处理,只有一个代理
+        hotOnly: false,
+        before(app){
+            app.get('/user/info',(req, res)=>{
+                res.json({data: {roles: ['admin']}})
+            })
+        }
+        // https:{type:Boolean}
+        // proxy: {                                        // 配置跨域
+        //     '/api':{
+        //         target: 'http://localhost:8082/api/', //源地址
+        //         changeOrigin:true,                  //改变源
+        //         ws:true,                            //是否代理websockets
+        //         pathRewrite:{
+        //             '^/api': '/api'
+        //         }
+        //     }
+        // },                                           // 配置跨域处理,只有一个代理
     },
     // 第三方插件配置
     pluginOptions: {}
